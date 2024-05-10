@@ -5,6 +5,7 @@ title: My sample book
 author: The Jupyter Book Community
 logo: logo.png
 
+
 sphinx:
   config:
     suppress_warnings: ["mystnb.unknown_mime_type"]
@@ -17,7 +18,7 @@ sphinx:
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
-  execute_notebooks: off
+  execute_notebooks: force
 
 # Define the name of the latex output file for PDF builds
 latex:
