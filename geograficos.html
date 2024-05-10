@@ -1,0 +1,1106 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Visualización Intercativa de Datos Geográficos &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'geograficos';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fgeograficos.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/geograficos.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Visualización Intercativa de Datos Geográficos</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias">Librerías</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cargar-el-dataset-de-produccion">1. Cargar el dataset de producción</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ordenar-el-dataframe-de-produccion-en-funcion-de-la-caracteristica-year">2. Ordenar el Dataframe de producción en función de la característica Year.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generar-un-mapa-de-coropletas-para-la-produccion-de-energia-renovable-en-funcion-del-year">3. Generar un mapa de coropletas para la producción de energía renovable en función del Year.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#actualice-el-diseno-para-incluir-un-estilo-de-proyeccion-adecuado-y-un-texto-de-titulo-y-luego-muestre-la-figura">4. Actualice el diseño para incluir un estilo de proyección adecuado y un texto de título, y luego muestre la figura.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cargar-el-dataset-de-consumo-de-energia-renovable">5. Cargar el Dataset de consumo de energía renovable</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ordenar-el-dataframe-de-consumo-en-base-a-la-caracteristica-year">7. Ordenar el DataFrame de consumo en base a la característica Year.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generar-un-mapa-coropletico-para-el-consumo-de-energia-renovable-utilizando-el-modulo-plotly-express-animado-en-funcion-del-ano">8. Generar un mapa coroplético para el consumo de energía renovable utilizando el módulo plotly express animado en función del año.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">9. Actualice el diseño para incluir un estilo de proyección adecuado y un texto de título, y luego muestre la figura.</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="visualizacion-intercativa-de-datos-geograficos">
+<h1>Visualización Intercativa de Datos Geográficos<a class="headerlink" href="#visualizacion-intercativa-de-datos-geograficos" title="Link to this heading">#</a></h1>
+<section id="librerias">
+<h2>Librerías<a class="headerlink" href="#librerias" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="cargar-el-dataset-de-produccion">
+<h3>1. Cargar el dataset de producción<a class="headerlink" href="#cargar-el-dataset-de-produccion" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">energia</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/lihkir/Uninorte/main/AppliedStatisticMS/DataVisualizationRPython/Lectures/Python/PythonDataSets/share-of-electricity-production-from-renewable-sources.csv&#39;</span><span class="p">)</span>
+<span class="n">energia</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Country</th>
+      <th>Code</th>
+      <th>Year</th>
+      <th>Renewable electricity (% electricity production)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>1990</td>
+      <td>67.730496</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>1991</td>
+      <td>67.980296</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>1992</td>
+      <td>67.994310</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>1993</td>
+      <td>68.345324</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>1994</td>
+      <td>68.704512</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="ordenar-el-dataframe-de-produccion-en-funcion-de-la-caracteristica-year">
+<h3>2. Ordenar el Dataframe de producción en función de la característica Year.<a class="headerlink" href="#ordenar-el-dataframe-de-produccion-en-funcion-de-la-caracteristica-year" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_ordenado</span> <span class="o">=</span> <span class="n">energia</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Year&#39;</span><span class="p">)</span>
+<span class="n">df_ordenado</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Country</th>
+      <th>Code</th>
+      <th>Year</th>
+      <th>Renewable electricity (% electricity production)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>1990</td>
+      <td>67.730496</td>
+    </tr>
+    <tr>
+      <th>1668</th>
+      <td>France</td>
+      <td>FRA</td>
+      <td>1990</td>
+      <td>13.369879</td>
+    </tr>
+    <tr>
+      <th>1643</th>
+      <td>Finland</td>
+      <td>FIN</td>
+      <td>1990</td>
+      <td>29.451790</td>
+    </tr>
+    <tr>
+      <th>1618</th>
+      <td>Fiji</td>
+      <td>FJI</td>
+      <td>1990</td>
+      <td>82.441113</td>
+    </tr>
+    <tr>
+      <th>1593</th>
+      <td>Faeroe Islands</td>
+      <td>FRO</td>
+      <td>1990</td>
+      <td>35.545024</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2707</th>
+      <td>Lebanon</td>
+      <td>LBN</td>
+      <td>2014</td>
+      <td>1.075089</td>
+    </tr>
+    <tr>
+      <th>919</th>
+      <td>Central African Republic</td>
+      <td>CAF</td>
+      <td>2014</td>
+      <td>85.792350</td>
+    </tr>
+    <tr>
+      <th>2682</th>
+      <td>Latvia</td>
+      <td>LVA</td>
+      <td>2014</td>
+      <td>54.541918</td>
+    </tr>
+    <tr>
+      <th>4743</th>
+      <td>Switzerland</td>
+      <td>CHE</td>
+      <td>2014</td>
+      <td>58.015463</td>
+    </tr>
+    <tr>
+      <th>5406</th>
+      <td>Zimbabwe</td>
+      <td>ZWE</td>
+      <td>2014</td>
+      <td>55.622069</td>
+    </tr>
+  </tbody>
+</table>
+<p>5407 rows × 4 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="generar-un-mapa-de-coropletas-para-la-produccion-de-energia-renovable-en-funcion-del-year">
+<h3>3. Generar un mapa de coropletas para la producción de energía renovable en función del Year.<a class="headerlink" href="#generar-un-mapa-de-coropletas-para-la-produccion-de-energia-renovable-en-funcion-del-year" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">choropleth</span><span class="p">(</span><span class="n">df_ordenado</span><span class="p">,</span>
+                    <span class="n">locations</span><span class="o">=</span><span class="s1">&#39;Code&#39;</span><span class="p">,</span> 
+                    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;Renewable electricity (</span><span class="si">% e</span><span class="s1">lectricity production)&#39;</span><span class="p">,</span> 
+                    <span class="n">hover_name</span><span class="o">=</span><span class="s1">&#39;Country&#39;</span><span class="p">,</span>
+                    <span class="n">animation_frame</span><span class="o">=</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> 
+                    <span class="n">color_continuous_scale</span><span class="o">=</span><span class="n">px</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">sequential</span><span class="o">.</span><span class="n">Plasma</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+</section>
+<section id="actualice-el-diseno-para-incluir-un-estilo-de-proyeccion-adecuado-y-un-texto-de-titulo-y-luego-muestre-la-figura">
+<h3>4. Actualice el diseño para incluir un estilo de proyección adecuado y un texto de título, y luego muestre la figura.<a class="headerlink" href="#actualice-el-diseno-para-incluir-un-estilo-de-proyeccion-adecuado-y-un-texto-de-titulo-y-luego-muestre-la-figura" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">choropleth</span><span class="p">(</span><span class="n">df_ordenado</span><span class="p">,</span>
+                    <span class="n">locations</span><span class="o">=</span><span class="s1">&#39;Code&#39;</span><span class="p">,</span> 
+                    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;Renewable electricity (</span><span class="si">% e</span><span class="s1">lectricity production)&#39;</span><span class="p">,</span> 
+                    <span class="n">hover_name</span><span class="o">=</span><span class="s1">&#39;Country&#39;</span><span class="p">,</span>
+                    <span class="n">animation_frame</span><span class="o">=</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> 
+                    <span class="n">color_continuous_scale</span><span class="o">=</span><span class="n">px</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">sequential</span><span class="o">.</span><span class="n">Plasma</span><span class="p">,</span> 
+                    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Producción de Energía Renovable por Región y Año&#39;</span><span class="p">,</span>
+                    <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Renewable electricity (</span><span class="si">% e</span><span class="s1">lectricity production)&#39;</span><span class="p">:</span> <span class="s1">&#39;Renewable electricity&#39;</span><span class="p">})</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+    <span class="n">title</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">geo</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+        <span class="n">showframe</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+        <span class="n">showcoastlines</span><span class="o">=</span><span class="kc">False</span>  
+    <span class="p">),</span>
+    <span class="n">autosize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+    <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> 
+    <span class="n">height</span><span class="o">=</span><span class="mi">800</span> 
+<span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<p>Se observa que a medida que pasan los años, la tendecia a incorporar energías renovables va en aumento. Sobretodo en los países de América y Europa.</p>
+</section>
+<section id="cargar-el-dataset-de-consumo-de-energia-renovable">
+<h3>5. Cargar el Dataset de consumo de energía renovable<a class="headerlink" href="#cargar-el-dataset-de-consumo-de-energia-renovable" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">consumo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/lihkir/Uninorte/main/AppliedStatisticMS/DataVisualizationRPython/Lectures/Python/PythonDataSets/renewable-energy-consumption-by-country.csv&#39;</span><span class="p">)</span>
+<span class="n">consumo</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Country</th>
+      <th>Code</th>
+      <th>Year</th>
+      <th>Traditional biofuels</th>
+      <th>Other renewables (modern biofuels, geothermal, wave &amp; tidal)</th>
+      <th>Wind</th>
+      <th>Solar PV</th>
+      <th>Hydropower</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Algeria</td>
+      <td>DZA</td>
+      <td>1965</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Algeria</td>
+      <td>DZA</td>
+      <td>1966</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Algeria</td>
+      <td>DZA</td>
+      <td>1967</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Algeria</td>
+      <td>DZA</td>
+      <td>1968</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Algeria</td>
+      <td>DZA</td>
+      <td>1969</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="ordenar-el-dataframe-de-consumo-en-base-a-la-caracteristica-year">
+<h3>7. Ordenar el DataFrame de consumo en base a la característica Year.<a class="headerlink" href="#ordenar-el-dataframe-de-consumo-en-base-a-la-caracteristica-year" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_ordenado</span> <span class="o">=</span> <span class="n">consumo</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Year&#39;</span><span class="p">)</span>
+<span class="n">df_ordenado</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Country</th>
+      <th>Code</th>
+      <th>Year</th>
+      <th>Traditional biofuels</th>
+      <th>Other renewables (modern biofuels, geothermal, wave &amp; tidal)</th>
+      <th>Wind</th>
+      <th>Solar PV</th>
+      <th>Hydropower</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Algeria</td>
+      <td>DZA</td>
+      <td>1965</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>1364</th>
+      <td>Ireland</td>
+      <td>IRL</td>
+      <td>1965</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>2656</th>
+      <td>Sweden</td>
+      <td>SWE</td>
+      <td>1965</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>1416</th>
+      <td>Israel</td>
+      <td>ISR</td>
+      <td>1965</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>1468</th>
+      <td>Italy</td>
+      <td>ITA</td>
+      <td>1965</td>
+      <td>NaN</td>
+      <td>2.676000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>NaN</td>
+      <td>2.676000</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>947</th>
+      <td>Finland</td>
+      <td>FIN</td>
+      <td>2016</td>
+      <td>NaN</td>
+      <td>11.794548</td>
+      <td>3.068000</td>
+      <td>0.013462</td>
+      <td>NaN</td>
+      <td>14.876009</td>
+    </tr>
+    <tr>
+      <th>155</th>
+      <td>Australia</td>
+      <td>AUS</td>
+      <td>2016</td>
+      <td>NaN</td>
+      <td>3.352482</td>
+      <td>13.190887</td>
+      <td>7.157880</td>
+      <td>NaN</td>
+      <td>23.701249</td>
+    </tr>
+    <tr>
+      <th>2863</th>
+      <td>Thailand</td>
+      <td>THA</td>
+      <td>2016</td>
+      <td>NaN</td>
+      <td>9.649613</td>
+      <td>0.465826</td>
+      <td>2.334719</td>
+      <td>NaN</td>
+      <td>12.450158</td>
+    </tr>
+    <tr>
+      <th>2603</th>
+      <td>South Korea</td>
+      <td>KOR</td>
+      <td>2016</td>
+      <td>NaN</td>
+      <td>12.018676</td>
+      <td>1.779674</td>
+      <td>5.236650</td>
+      <td>NaN</td>
+      <td>19.035000</td>
+    </tr>
+    <tr>
+      <th>3343</th>
+      <td>Vietnam</td>
+      <td>VNM</td>
+      <td>2016</td>
+      <td>NaN</td>
+      <td>0.059162</td>
+      <td>0.241540</td>
+      <td>0.007170</td>
+      <td>NaN</td>
+      <td>0.307871</td>
+    </tr>
+  </tbody>
+</table>
+<p>3344 rows × 9 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="generar-un-mapa-coropletico-para-el-consumo-de-energia-renovable-utilizando-el-modulo-plotly-express-animado-en-funcion-del-ano">
+<h3>8. Generar un mapa coroplético para el consumo de energía renovable utilizando el módulo plotly express animado en función del año.<a class="headerlink" href="#generar-un-mapa-coropletico-para-el-consumo-de-energia-renovable-utilizando-el-modulo-plotly-express-animado-en-funcion-del-ano" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">choropleth</span><span class="p">(</span><span class="n">df_ordenado</span><span class="p">,</span>
+                    <span class="n">locations</span><span class="o">=</span><span class="s1">&#39;Code&#39;</span><span class="p">,</span> 
+                    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;Total&#39;</span><span class="p">,</span> 
+                    <span class="n">hover_name</span><span class="o">=</span><span class="s1">&#39;Country&#39;</span><span class="p">,</span>
+                    <span class="n">animation_frame</span><span class="o">=</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> 
+                    <span class="n">color_continuous_scale</span><span class="o">=</span><span class="n">px</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">sequential</span><span class="o">.</span><span class="n">Plasma</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+</section>
+<section id="id1">
+<h3>9. Actualice el diseño para incluir un estilo de proyección adecuado y un texto de título, y luego muestre la figura.<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">choropleth</span><span class="p">(</span><span class="n">df_ordenado</span><span class="p">,</span>
+                    <span class="n">locations</span><span class="o">=</span><span class="s1">&#39;Code&#39;</span><span class="p">,</span> 
+                    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;Total&#39;</span><span class="p">,</span> 
+                    <span class="n">hover_name</span><span class="o">=</span><span class="s1">&#39;Country&#39;</span><span class="p">,</span>
+                    <span class="n">animation_frame</span><span class="o">=</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> 
+                    <span class="n">color_continuous_scale</span><span class="o">=</span><span class="n">px</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">sequential</span><span class="o">.</span><span class="n">Plasma</span><span class="p">,</span> 
+                    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Consumo de Energía Renovable por Región y Año&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+    <span class="n">title</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">geo</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+        <span class="n">showframe</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+        <span class="n">showcoastlines</span><span class="o">=</span><span class="kc">False</span>  
+    <span class="p">),</span>
+    <span class="n">autosize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+    <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> 
+    <span class="n">height</span><span class="o">=</span><span class="mi">800</span> 
+<span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<p>Se observa que a medida que pasan los años la tendencia general de los países es aumentar el consumo en energías renovables.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias">Librerías</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cargar-el-dataset-de-produccion">1. Cargar el dataset de producción</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ordenar-el-dataframe-de-produccion-en-funcion-de-la-caracteristica-year">2. Ordenar el Dataframe de producción en función de la característica Year.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generar-un-mapa-de-coropletas-para-la-produccion-de-energia-renovable-en-funcion-del-year">3. Generar un mapa de coropletas para la producción de energía renovable en función del Year.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#actualice-el-diseno-para-incluir-un-estilo-de-proyeccion-adecuado-y-un-texto-de-titulo-y-luego-muestre-la-figura">4. Actualice el diseño para incluir un estilo de proyección adecuado y un texto de título, y luego muestre la figura.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cargar-el-dataset-de-consumo-de-energia-renovable">5. Cargar el Dataset de consumo de energía renovable</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ordenar-el-dataframe-de-consumo-en-base-a-la-caracteristica-year">7. Ordenar el DataFrame de consumo en base a la característica Year.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generar-un-mapa-coropletico-para-el-consumo-de-energia-renovable-utilizando-el-modulo-plotly-express-animado-en-funcion-del-ano">8. Generar un mapa coroplético para el consumo de energía renovable utilizando el módulo plotly express animado en función del año.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">9. Actualice el diseño para incluir un estilo de proyección adecuado y un texto de título, y luego muestre la figura.</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
